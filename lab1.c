@@ -12,7 +12,7 @@ int * doubleArr(int arr[]) {
 
     for (i = 0; i < 5; ++i)
     {
-        r[i] = arr[i]*arr[i];
+        r[i] = arr[i]*2;
     }
     return r;
 }
@@ -37,18 +37,18 @@ void * sortArr(int arr[]) {
 }
 
 /* main program */
-
 int main () {
     /* given array is listed below */
     int num[5] = {11, 55, 22, 44, 33};
     int *p;
     int i;
+
     /* call the doubleArr function */
     p = doubleArr(num);
 
     /* print the five elements of array num[] */
     printf("After doubleArr function:\n");
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < sizeof(num) / sizeof (num[0]); i++)
     {
         num[i] = *(p+i);
         printf("    num[%d]: %d\n", i, num[i]);
@@ -59,7 +59,7 @@ int main () {
 
     /* print the five elements of array num[] */
     printf("After sortArr function:\n");
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < sizeof(num) / sizeof (num[0]); i++)
     {
         printf("    num[%d]: %d\n", i, num[i]);
     }
