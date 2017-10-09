@@ -9,13 +9,10 @@ main:
     # Pre-process: load all values to registers
     li $s1, 5 # assume y is 5
     la $s2, arrayA # load base address of array A
-    la $s3, arrayB # load base address of array A
+    la $s3, arrayB # load base address of array B
 
     # Get value of A[20]
-    li $t0, 20          # $t0 is the index in the array
-    mul $t1, $t0, 4     # $t1 is the offset
-    add $t2, $s2, $t1   # $t2 is the address of A[20]
-    lw $t3, ($t2)       # load word at address $t2 to $t3
+    lw $t3, 80($s2)       # load word at address $t2 to $t3
 
     # Print value of A[20]
     move $a0, $t3

@@ -7,7 +7,7 @@ array:   .word  0:10    # assume array A has length of 20
 main:
     # Pre-process: load all values to registers
     li $s0, 1           # assume x is 1
-li $s1, 5               # assume y is 5
+    li $s1, 5           # assume y is 5
     la $s2, array       # load base address of array
 
 loop: 
@@ -17,10 +17,9 @@ loop:
 
     add $t0, $s0, $s1   # add x and y and save to $t0
 
-    li $t3, 1           # $t3 is the index in the array
-    mul $t4, $t3, 4     # $t4 is the offset
-    add $t5, $s2, $t4   # $t5 is the address of A[20]
-    sw $t0, ($t5)       # store the value to address
+    mul $t3, $s0, 4     # $t4 is the offset
+    add $t4, $s2, $t3   # $t5 is the address of A[20]
+    sw $t0, ($t4)       # store the value to address
     
     addi $t1, $s0, 1    # add 1 to x value
     move $s0, $t1
